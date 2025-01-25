@@ -7,7 +7,7 @@ const Homepage: FC = () => {
     <main>
       <div className="flex justify-center mt-28">
         <h1 className="w-[1020px] text-center text-6xl font-jidoka-newsreader">
-          We're <span className="italic">dev's, persons</span> and <span className="italic">teachers</span> of dreams of Technology
+          <span className="italic">We are devs, persons and teachers of dreams of Technology</span>
         </h1>
       </div>
       <div className="flex justify-center mt-12">
