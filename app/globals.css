@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'jidoka-newsreader';
+    src: url('./assets/fonts/Newsreader-VariableFont_opsz\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-size: normal;
+}
+@font-face {
+    font-family: 'jidoka-newsreader';
+    src: url('./assets/fonts/Newsreader-Italic-VariableFont_opsz\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-size: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'jidoka-inter';
+    src: url('./assets/fonts/InterVariable.ttf') format('truetype');
+    font-weight: normal;
+    font-size: normal;
+}
