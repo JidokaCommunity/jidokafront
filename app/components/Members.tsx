@@ -2,7 +2,7 @@
 import React, { FC } from "react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { getMembers, Members as mb } from "../services/api";
+import { getData, Members as mb } from "../services/api";
 
 /* const members = [
   {
@@ -28,15 +28,16 @@ import { getMembers, Members as mb } from "../services/api";
 ]; */
 
 const Members: FC = () => {
-  const [members, setMembers] = useState<mb[]>([]);
+  const [members, setMembers] = useState<unknown>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function loadMembers() {
       try {
-        const data = await getMembers();
-        setMembers(data);
+        const data = await getData();
+        const memb = (data as { results: unknown }).results;
+        setMembers(memb);
       } catch (error) {
         setError("Failed to load memebers");
       } finally {
@@ -54,7 +55,7 @@ const Members: FC = () => {
     return <p>Invalid data format</p>;
   }
   console.log(members);
-
+  
 
   return (
     <main className="p-8">
@@ -86,8 +87,7 @@ const Members: FC = () => {
             /> */}
             <div className="ml-4">
               <h2 className="text-xl font-semibold">{member.name}</h2>
-              <p>{member.linkedinURL}</p>
-              <p>{member.role}</p>
+              <p>{member.url}</p>
             </div>
           </div>
         ))}
