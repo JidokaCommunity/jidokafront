@@ -10,7 +10,7 @@ export interface Members {
 }
 
 //Helper function to fetch data from a given endpoint
-export async function fetchData<T>(endpoint: string): Promise<T> {
+export async function fetchData<T = unknown>(endpoint: string): Promise<T> {
     const response = await fetch(endpoint);
     if(!response.ok){
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -20,5 +20,11 @@ export async function fetchData<T>(endpoint: string): Promise<T> {
 
 //Especifics API calls
 export async function getMembers() : Promise<Members[]> {
-    return fetchData<Members[]>("/api/members")
+    const baseURL = "https://pokeapi.co/api/v2/";
+    return fetchData<Members[]>(`${baseURL}pokemon?limit=5&offset=0`)
+}
+
+//uknown structure
+export async function getData<T>(): Promise<T> {
+    return fetchData<T>("https://pokeapi.co/api/v2/pokemon?limit=5&offset=0");
 }

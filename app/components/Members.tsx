@@ -2,7 +2,7 @@
 import React, { FC } from "react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { getMembers, Members as mb } from "../services/api";
+import { getData, Members as mb } from "../services/api";
 
 /* const members = [
   {
@@ -28,15 +28,16 @@ import { getMembers, Members as mb } from "../services/api";
 ]; */
 
 const Members: FC = () => {
-  const [members, setMembers] = useState<mb[]>([]);
+  const [members, setMembers] = useState<unknown>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function loadMembers() {
       try {
-        const data = await getMembers();
-        setMembers(data);
+        const data = await getData();
+        const memb = (data as { results: unknown }).results;
+        setMembers(memb);
       } catch (error) {
         setError("Failed to load memebers");
       } finally {
@@ -49,6 +50,10 @@ const Members: FC = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
+
+  if (!Array.isArray(members)) {
+    return <p>Invalid data format</p>;
+  }
   console.log(members);
   
 
@@ -72,16 +77,17 @@ const Members: FC = () => {
             key={index}
             className="flex p-4 bg-gray-100 rounded-lg items-center"
           >
-            <Image
-              src={member.avatar}
+            <img src="https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg" className="rounded-full w-24 h-24 object-cover" alt="" />
+            {/* <Image
+              src={"https://cdn2.thecatapi.com/images/ebv.jpg"}
               alt={member.name}
               width={100}
               height={100}
               className="rounded-full"
-            />
+            /> */}
             <div className="ml-4">
-              <h2 className="text-xl font-semibold">{member.role}</h2>
-              <p>{member.role}</p>
+              <h2 className="text-xl font-semibold">{member.name}</h2>
+              <p>{member.url}</p>
             </div>
           </div>
         ))}
