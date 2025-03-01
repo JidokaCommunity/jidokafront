@@ -20,8 +20,8 @@ export async function fetchData<T = unknown>(endpoint: string): Promise<T> {
 
 //Especifics API calls
 export async function getMembers() : Promise<Members[]> {
-    const baseURL = "https://pokeapi.co/api/v2/";
-    return fetchData<Members[]>(`${baseURL}pokemon?limit=5&offset=0`)
+    const baseURL = "http://localhost:8081";
+    return fetchData<Members[]>(`${baseURL}/members`)
 }
 
 //uknown structure
