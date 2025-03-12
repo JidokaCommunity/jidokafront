@@ -10,4 +10,11 @@ describe('Homepage', ()=>{
 
         cy.get('img').should('be.visible');
     })
+    it('Should load the Who we are page', () => {
+         //Start the 'index' page
+         cy.visit('http://localhost:3000/who-we-are');
+
+         //The home page should contain a h1 with 'JIDOKA Community'
+         cy.get('h1').contains("Who we are");
+    })
 })
