@@ -10,7 +10,7 @@ const WhoWeAre = () => {
      practice and master software development skills, regardless of your background or prior education.</p>
     <p className="max-w-4xl mx-auto text-justify">By coming together, sharing knowledge, and collaborating on exciting
      projects, we create an inclusive environment where everyone can grow and transform their lives through technology.
-     Whether you're just starting out or looking to sharpen your skills, our community is here to support you on your
+     Whether you are just starting out or looking to sharpen your skills, our community is here to support you on your
       journey to becoming a software developer. </p>
   </main>
 }
