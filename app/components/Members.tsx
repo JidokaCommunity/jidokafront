@@ -1,7 +1,10 @@
+"use client";
 import React, { FC } from "react";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import { getData, Members as mb } from "../services/api";
 
-const members = [
+/* const members = [
   {
     image: '/images/tomato.jpg',
     title: 'Tomato',
@@ -22,14 +25,43 @@ const members = [
     title: 'Organic ginger',
     description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit porttitor conva...'
   },
-];
+]; */
 
 const Members: FC = () => {
+  const [members, setMembers] = useState<unknown>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function loadMembers() {
+      try {
+        const data = await getData();
+        const memb = (data as { results: unknown }).results;
+        setMembers(memb);
+      } catch (error) {
+        setError("Failed to load memebers");
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadMembers();
+  }, [])
+
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+
+  if (!Array.isArray(members)) {
+    return <p>Invalid data format</p>;
+  }
+  console.log(members);
+  
+
   return (
     <main className="p-8">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-5xl font-jidoka-newsreader">Members</h1>
-        
+
         <div className="flex space-x-2">
           <button className="border px-4 py-2 rounded-full bg-[#1F5D6B] text-white">Default</button>
           <button className="border px-4 py-2 rounded-full">A-Z</button>
@@ -45,16 +77,17 @@ const Members: FC = () => {
             key={index}
             className="flex p-4 bg-gray-100 rounded-lg items-center"
           >
-            <Image
-              src={member.image}
-              alt={member.title}
+            <img src="https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg" className="rounded-full w-24 h-24 object-cover" alt="" />
+            {/* <Image
+              src={"https://cdn2.thecatapi.com/images/ebv.jpg"}
+              alt={member.name}
               width={100}
               height={100}
               className="rounded-full"
-            />
+            /> */}
             <div className="ml-4">
-              <h2 className="text-xl font-semibold">{member.title}</h2>
-              <p>{member.description}</p>
+              <h2 className="text-xl font-semibold">{member.name}</h2>
+              <p>{member.url}</p>
             </div>
           </div>
         ))}
