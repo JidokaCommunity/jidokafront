@@ -18,9 +18,6 @@ const Navbar: FC = () => {
           <Link href="/members" legacyBehavior>
             <a className="hover:underline">Who we are</a>
           </Link>
-          <Link href="#" legacyBehavior>
-            <a className="hover:underline">My profile</a>
-          </Link>
         </nav>
         <button className="bg-[#1F5D6B] text-white px-4 py-2 rounded">Log Out</button>
       </div>
