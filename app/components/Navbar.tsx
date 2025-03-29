@@ -9,7 +9,7 @@ const Navbar: FC = () => {
       </Link>
       <div className="flex items-center space-x-8">
         <nav className="flex space-x-4">
-          <Link href="#" legacyBehavior>
+          <Link href="/vision" legacyBehavior>
             <a className="hover:underline">Vision</a>
           </Link>
           <Link href="#" legacyBehavior>
