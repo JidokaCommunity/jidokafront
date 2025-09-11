@@ -2,7 +2,7 @@
 import React, { FC } from "react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { getData, Members as mb } from "../services/api";
+import { getData } from "../services/api";
 
 /* const members = [
   {
@@ -28,18 +28,17 @@ import { getData, Members as mb } from "../services/api";
 ]; */
 
 const Members: FC = () => {
-  const [members, setMembers] = useState<unknown>([]);
+  const [members, setMembers] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function loadMembers() {
       try {
-        const data = await getData();
-        const memb = (data as { results: unknown }).results;
-        setMembers(memb);
+        const data = await getData<{ results: any[] }>("https://pokeapi.co/api/v2/pokemon?limit=5&offset=0");
+        setMembers(data.results);
       } catch (error) {
-        setError("Failed to load memebers");
+        setError("Failed to load members");
       } finally {
         setLoading(false);
       }

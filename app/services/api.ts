@@ -1,7 +1,4 @@
-//Interfaces
-
-//Interface for members
-export interface Members {
+export interface Member {
     id: string;
     name: string;
     role: string;
@@ -9,22 +6,23 @@ export interface Members {
     avatar: string;
 }
 
-//Helper function to fetch data from a given endpoint
-export async function fetchData<T = unknown>(endpoint: string): Promise<T> {
-    const response = await fetch(endpoint);
-    if(!response.ok){
-        throw new Error(`HTTP error! status: ${response.status}`);
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081";
+
+export async function fetchData<T>(endpoint: string): Promise<T> {
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch ${endpoint}: ${response.status} ${response.statusText}`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('API fetch error:', error);
+        throw error;
     }
-    return response.json();
 }
 
-//Especifics API calls
-export async function getMembers() : Promise<Members[]> {
-    const baseURL = "http://localhost:8081";
-    return fetchData<Members[]>(`${baseURL}/members`)
-}
+export const getMembers = (): Promise<Member[]> => 
+    fetchData<Member[]>(`${API_BASE_URL}/members`);
 
-//uknown structure
-export async function getData<T>(): Promise<T> {
-    return fetchData<T>("https://pokeapi.co/api/v2/pokemon?limit=5&offset=0");
-}
+export const getData = <T>(url: string): Promise<T> => 
+    fetchData<T>(url);
