@@ -22,7 +22,7 @@ const Homepage: FC = () => {
       */}
 
       {/* Hero Section */}
-      <section className="w-full py-20 md:py-32 px-4 sm:px-6 lg:px-8 text-center bg-gradient-to-br from-blue-50 to-indigo-100">
+      <section className="w-full py-20 md:py-32 px-4 sm:px-6 lg:px-8 text-center bg-gradient-to-br from-gray-200 to-slate-200">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight max-w-4xl mx-auto">
           <span className="italic font-serif">Training new developers with cutting-edge technology</span>
         </h1>
