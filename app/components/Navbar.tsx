@@ -12,7 +12,7 @@ const Navbar: FC = () => {
           <Link href="#" legacyBehavior>
             <a className="hover:underline">Vision</a>
           </Link>
-          <Link href="#" legacyBehavior>
+          <Link href="/goals" legacyBehavior>
             <a className="hover:underline">Goals</a>
           </Link>
           <Link href="#" legacyBehavior>
