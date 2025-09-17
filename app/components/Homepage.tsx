@@ -70,7 +70,7 @@ const Homepage: FC = () => {
             />
             <h3 className="mt-6 text-2xl font-semibold text-gray-800 font-sans">Train New Jidokas</h3>
             <p className="mt-2 text-gray-600 text-lg leading-relaxed font-sans">
-              If you've been a Jidoka before, our vocation of service calls us to train new Jidokas. We share knowledge and experience.
+              If you have been a Jidoka before, our vocation of service calls us to train new Jidokas. We share knowledge and experience.
             </p>
           </div>
         </div>
@@ -91,7 +91,7 @@ const Homepage: FC = () => {
             We are a non-profit community founded in 2017, whose purpose is to serve people who want to learn to program by enabling knowledge, training new developers with cutting-edge technology through the creation of minimum viable products.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed font-sans">
-            We acquire technical and attitudinal skills to enter the Tech world, reducing gaps in gender, social status, profession, and age. We are a chain of favors: if you've been a Jidoka before, our vocation of service calls us to train new Jidokas. We start from a fundamental principle that anyone can learn to program.
+            We acquire technical and attitudinal skills to enter the Tech world, reducing gaps in gender, social status, profession, and age. We are a chain of favors: if you have been a Jidoka before, our vocation of service calls us to train new Jidokas. We start from a fundamental principle that anyone can learn to program.
           </p>
         </div>
       </section>
