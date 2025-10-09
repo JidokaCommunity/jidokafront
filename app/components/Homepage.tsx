@@ -47,11 +47,11 @@ const Homepage: FC = () => {
           {/* Left Illustration */}
           <div className="w-full md:w-1/2 flex flex-col items-center text-center">
             <Image
-              src={'/images/homepage-computer.jpg'}
+              src={'/images/homepage-people.jpg'}
               alt="Learn and Collaborate"
-              width={736}
-              height={546}
-              className="w-full h-auto object-contain rounded-lg shadow-md max-w-md"
+              width={700}
+              height={500}
+              className="object-contain rounded-lg shadow-md max-w-md"
             />
             <h3 className="mt-6 text-2xl font-semibold text-gray-800 font-sans">Learn and Collaborate</h3>
             <p className="mt-2 text-gray-600 text-lg leading-relaxed font-sans">
@@ -62,11 +62,11 @@ const Homepage: FC = () => {
           {/* Right Illustration */}
           <div className="w-full md:w-1/2 flex flex-col items-center text-center">
             <Image
-              src={'/images/homepage-mobile.jpg'}
+              src={'/images/homepage-people.jpg'}
               alt="Train New Jidokas"
-              width={736}
-              height={546}
-              className="w-full h-auto object-contain rounded-lg shadow-md max-w-md"
+              width={700}
+              height={500}
+              className="object-contain rounded-lg shadow-md max-w-md"
             />
             <h3 className="mt-6 text-2xl font-semibold text-gray-800 font-sans">Train New Jidokas</h3>
             <p className="mt-2 text-gray-600 text-lg leading-relaxed font-sans">
