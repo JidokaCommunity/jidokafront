@@ -1,5 +1,5 @@
 import Vision from '../components/Vision';
 
-export default function MembersPage() {
+export default function VisionPage() {
   return <Vision />;
 }

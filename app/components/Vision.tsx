@@ -1,15 +1,11 @@
 import React, { FC } from "react";
-import Image from "next/image";
-import Link from "next/link";
 
 const Vision: FC = () => {
   return (
-    <main>
-      <div className="flex justify-center mt-28">
-        <h1 className="w-[1020px] text-center text-6xl font-jidoka-newsreader">
-          Vision
-        </h1>
-      </div>
+    <main className="min-h-screen bg-white flex justify-center">
+      <h1 className="text-3xl sm:text-3xl md:text-5xl font-extrabold text-gray-900 font-jidoka-newsreader p-6">
+        Vision
+      </h1>
     </main>
   );
 }
