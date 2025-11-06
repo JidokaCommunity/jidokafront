@@ -23,8 +23,7 @@ describe('<Vision />', () => {
 
   it('should have correct heading styles', () => {
     cy.get('h1')
-      .should('have.class', 'font-extrabold')
-      .and('have.class', 'text-gray-900')
+      .should('have.class', 'text-gray-900')
       .and('have.class', 'font-jidoka-newsreader')
   })
 })

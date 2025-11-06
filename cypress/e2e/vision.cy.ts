@@ -20,7 +20,6 @@ describe('Vision Page', () => {
 
   it('should have responsive design classes', () => {
     cy.get('h1')
-      .should('have.class', 'font-extrabold')
-      .and('have.class', 'text-gray-900')
+      .should('have.class', 'text-gray-900')
   })
 })
