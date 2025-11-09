@@ -47,7 +47,7 @@ const Homepage: FC = () => {
           {/* Left Illustration */}
           <div className="w-full md:w-1/2 flex flex-col items-center text-center">
             <Image
-              src={'/images/homepage-people.jpg'}
+              src={'/images/homepage-learnandcolaborate.png'}
               alt="Learn and Collaborate"
               width={700}
               height={500}
@@ -62,7 +62,7 @@ const Homepage: FC = () => {
           {/* Right Illustration */}
           <div className="w-full md:w-1/2 flex flex-col items-center text-center">
             <Image
-              src={'/images/homepage-people.jpg'}
+              src={'/images/homepage-trainjidokas.png'}
               alt="Train New Jidokas"
               width={700}
               height={500}
