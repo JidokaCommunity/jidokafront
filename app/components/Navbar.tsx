@@ -10,10 +10,10 @@ const Navbar: FC = () => {
       <div className="flex items-center space-x-8">
         <nav className="flex space-x-4">
           <Link href="#" legacyBehavior>
-            <a className="hover:underline">Vision</a>
+            <a className="hover:underline sr-only">Vision</a>
           </Link>
           <Link href="#" legacyBehavior>
-            <a className="hover:underline">Goals</a>
+            <a className="hover:underline sr-only">Goals</a>
           </Link>
           <Link href="/who-we-are" legacyBehavior>
             <a className="hover:underline">Who we are</a>
