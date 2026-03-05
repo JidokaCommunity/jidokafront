@@ -15,8 +15,8 @@ const Navbar: FC = () => {
           <Link href="/goals" legacyBehavior>
             <a className="hover:underline">Goals</a>
           </Link>
-          <Link href="#" legacyBehavior>
-            <a className="hover:underline">Who we are</a>
+          <Link href="/members" legacyBehavior>
+            <a className="hover:underline">Members</a>
           </Link>
           <Link href="#" legacyBehavior>
             <a className="hover:underline">My profile</a>
