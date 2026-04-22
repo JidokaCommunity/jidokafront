@@ -19,7 +19,6 @@ const Navbar: FC = () => {
             <a className="hover:underline">Who we are</a>
           </Link>
         </nav>
-        <button className="bg-[#1F5D6B] text-white px-4 py-2 rounded">Log Out</button>
       </div>
     </header>
   );
