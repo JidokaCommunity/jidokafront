@@ -43,4 +43,9 @@ describe('Homepage', () => {
         cy.get('main').should('exist');
         cy.get('section').should('have.length.at.least', 3);
     });
+
+    it('Should load the Members page', () => {
+        cy.visit('http://localhost:3000/members');
+        cy.get('h1').contains("Members");
+    });
 });
