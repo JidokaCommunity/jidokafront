@@ -109,12 +109,6 @@ const Members: FC = () => {
     <main className="p-8">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-5xl font-jidoka-newsreader">Members</h1>
-
-        <div className="flex space-x-2">
-          <button className="border px-4 py-2 rounded-full bg-[#1F5D6B] text-white">Default</button>
-          <button className="border px-4 py-2 rounded-full">A-Z</button>
-          <button className="border px-4 py-2 rounded-full">List view</button>
-        </div>
       </div>
 
       <div className="border-b border-gray-300 mb-6"></div>
@@ -125,16 +119,16 @@ const Members: FC = () => {
             key={member.id}
             className="flex p-4 bg-gray-100 rounded-lg items-center"
           >
-            <img 
-              src={member.avatar} 
-              className="rounded-full w-24 h-24 object-cover" 
-              alt={member.name} 
+            <img
+              src={member.avatar}
+              className="rounded-full w-24 h-24 object-cover"
+              alt={member.name}
             />
             <div className="ml-4">
               <h2 className="text-xl font-semibold">{member.name}</h2>
               <p className="text-gray-600 font-medium">{member.role}</p>
-              <a 
-                href={member.linkedinURL} 
+              <a
+                href={member.linkedinURL}
                 className="text-blue-500 hover:underline text-sm mt-1 inline-block"
               >
                 Contacto (Email)
