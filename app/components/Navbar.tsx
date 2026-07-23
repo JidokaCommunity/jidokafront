@@ -1,24 +1,26 @@
 import React, { FC } from "react";
 import Link from "next/link";
+import AvatarMenu from "./AvatarMenu";
 
 const Navbar: FC = () => {
   return (
     <header className="flex justify-between items-center p-4 border-b">
-      <Link href="/" legacyBehavior>
-        <a className="text-2xl font-jidoka-newsreader">JIDOKA</a>
+      <Link href="/" className="text-2xl font-jidoka-newsreader">
+        JIDOKA
       </Link>
       <div className="flex items-center space-x-8">
         <nav className="flex space-x-4">
-          <Link href="#" legacyBehavior>
-            <a className="hover:underline">Vision</a>
+          <Link href="#" className="hover:underline hidden">
+            Vision
           </Link>
-          <Link href="#" legacyBehavior>
-            <a className="hover:underline">Goals</a>
+          <Link href="#" className="hover:underline hidden">
+            Goals
           </Link>
-          <Link href="/who-we-are" legacyBehavior>
-            <a className="hover:underline">Who we are</a>
+          <Link href="/members" className="hover:underline">
+            Members
           </Link>
         </nav>
+        <AvatarMenu />
       </div>
     </header>
   );

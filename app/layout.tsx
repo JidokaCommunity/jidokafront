@@ -2,6 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "../app/components/Navbar";
+import ProfileModal from "../app/components/ProfileModal";
+import { ProfileModalProvider } from "../app/context/ProfileModalContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">      
+    <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        {children}
+        <ProfileModalProvider>
+          <Navbar />
+          {children}
+          <ProfileModal />
+        </ProfileModalProvider>
       </body>
     </html>
   );
