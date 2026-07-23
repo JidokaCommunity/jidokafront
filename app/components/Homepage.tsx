@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import CommunitySection from "./CommunitySection";
 
 const Homepage: FC = () => {
   return (
@@ -78,6 +79,8 @@ const Homepage: FC = () => {
           We start from a fundamental principle: anyone can learn to program. Join our community and be part of the change.
         </p>
       </section>
+
+      <CommunitySection />
 
       {/* "OUR MISSION" Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">

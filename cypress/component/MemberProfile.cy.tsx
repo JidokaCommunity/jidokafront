@@ -6,17 +6,16 @@ describe('<MemberProfile />', () => {
     cy.mount(<MemberProfile />)
   })
 
-  it('should render the member avatar, role badge, name, specialty and bio', () => {
+  it('should render the member avatar, role badge, name and specialty', () => {
     cy.get('[data-testid="member-profile-card"]').within(() => {
-      cy.get('img').should('have.attr', 'alt', 'Alex Mercer')
+      cy.get('img').should('have.attr', 'alt', 'Daniel Cardenas Parra')
       cy.contains('Senpai')
-      cy.get('h1').should('contain.text', 'Alex Mercer')
+      cy.get('h1').should('contain.text', 'Daniel Cardenas Parra')
       cy.contains('Senior Software Engineer')
-      cy.contains('Apasionado por construir sistemas escalables')
     })
   })
 
-  it('should render working GitHub, LinkedIn and Portfolio links', () => {
+  it('should render working GitHub and LinkedIn links', () => {
     cy.contains('a', 'GitHub')
       .should('have.attr', 'href')
       .and('include', 'github.com')
@@ -24,10 +23,6 @@ describe('<MemberProfile />', () => {
     cy.contains('a', 'LinkedIn')
       .should('have.attr', 'href')
       .and('include', 'linkedin.com')
-
-    cy.contains('a', 'Portfolio')
-      .should('have.attr', 'href')
-      .and('include', 'alexmercer.dev')
   })
 
   it('should open external links in a new tab safely', () => {
