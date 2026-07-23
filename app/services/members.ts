@@ -20,6 +20,7 @@ export const mockMembers: Member[] = [
     name: "Daniel Cardenas Parra",
     role: "Senpai",
     linkedinURL: "https://www.linkedin.com/in/daniel-cardenas-88545a181/?locale=es",
+    githubUrl: "https://github.com/borosdemir",
     avatar: "https://ui-avatars.com/api/?name=Daniel+Cardenas+Parra&background=random",
   },
   {

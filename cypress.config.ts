@@ -16,6 +16,7 @@ export default defineConfig({
         resolve: {
           alias: {
             "react-icons/fa": path.resolve(__dirname, "cypress/mocks/react-icons-fa.tsx"),
+            "next/navigation": path.resolve(__dirname, "cypress/mocks/next-navigation.ts"),
           },
         },
       },

@@ -21,3 +21,29 @@
     font-weight: normal;
     font-size: normal;
 }
+
+.community-swiper .swiper-wrapper {
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.community-swiper .swiper-slide {
+    opacity: 0.45;
+    transform: scale(0.88);
+    filter: saturate(0.85);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+}
+
+.community-swiper .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+    filter: none;
+}
+
+.community-swiper .swiper-button-next,
+.community-swiper .swiper-button-prev {
+    color: #1F5D6B;
+}
+
+.community-swiper .swiper-pagination-bullet-active {
+    background: #1F5D6B;
+}

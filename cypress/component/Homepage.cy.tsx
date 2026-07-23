@@ -25,7 +25,7 @@ describe('<Homepage />', () => {
   })
 
   it('should render all images, be visible, and load correctly', () => {
-  cy.get('img')
+  cy.get('section').eq(1).find('img')
     .should('have.length', 2)
     .each(($img) => {
       cy.wrap($img)
@@ -67,6 +67,6 @@ describe('<Homepage />', () => {
 
   it('should have proper component structure', () => {
     cy.get('main').should('exist')
-    cy.get('section').should('have.length', 3)
+    cy.get('section').should('have.length', 4)
   })
 })
