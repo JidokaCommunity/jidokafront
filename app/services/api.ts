@@ -7,7 +7,6 @@ export interface Member {
     specialty?: string;
     bio?: string;
     githubUrl?: string;
-    portfolioUrl?: string;
 }
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081";
