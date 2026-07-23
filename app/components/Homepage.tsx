@@ -30,10 +30,8 @@ const Homepage: FC = () => {
           Non-profit community since 2017. We enable knowledge so anyone can learn to program, reducing gaps in gender, social status, profession, and age.
         </p>
         <div className="mt-8">
-          <Link href="/members" legacyBehavior>
-            <a className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 font-sans inline-flex items-center justify-center">
-              Join the Community
-            </a>
+          <Link href="/members" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 font-sans inline-flex items-center justify-center">
+            Join the Community
           </Link>
         </div>
       </section>
