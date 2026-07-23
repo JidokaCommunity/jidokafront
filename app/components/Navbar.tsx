@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import Link from "next/link";
+import AvatarMenu from "./AvatarMenu";
 
 const Navbar: FC = () => {
   return (
@@ -19,6 +20,7 @@ const Navbar: FC = () => {
             <a className="hover:underline">Members</a>
           </Link>
         </nav>
+        <AvatarMenu />
       </div>
     </header>
   );
