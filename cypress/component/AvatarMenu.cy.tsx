@@ -19,7 +19,8 @@ describe('<AvatarMenu />', () => {
   it('should open the menu with all options when the avatar is clicked', () => {
     cy.get('[data-testid="avatar-button"]').click()
     cy.get('[data-testid="avatar-menu"]').should('be.visible')
-    cy.get('[data-testid="avatar-menu"]').contains('Mi Perfil')
+    // "Mi Perfil" comentado hasta que exista autenticación real
+    // cy.get('[data-testid="avatar-menu"]').contains('Mi Perfil')
     cy.get('[data-testid="avatar-menu"]').contains('Configuración')
     cy.get('[data-testid="avatar-menu"]').contains('Proyectos')
     cy.get('[data-testid="avatar-menu"]').contains('Cerrar Sesión')

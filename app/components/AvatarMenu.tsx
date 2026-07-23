@@ -2,7 +2,7 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useProfileModal } from "../context/ProfileModalContext";
+// import { useProfileModal } from "../context/ProfileModalContext"; // reactivar cuando exista auth real
 
 const UserIcon: FC = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -46,7 +46,7 @@ const linkMenuItems: MenuLinkItem[] = [
 const AvatarMenu: FC = () => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { openProfileModal } = useProfileModal();
+  // const { openProfileModal } = useProfileModal(); // reactivar cuando exista auth real
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -84,7 +84,8 @@ const AvatarMenu: FC = () => {
           data-testid="avatar-menu"
           className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg py-1 z-50"
         >
-          <button
+          {/* "Mi Perfil" comentado hasta que exista autenticación real (no hay usuario logueado todavía) */}
+          {/* <button
             type="button"
             role="menuitem"
             data-testid="avatar-menu-my-profile"
@@ -96,7 +97,7 @@ const AvatarMenu: FC = () => {
           >
             <UserIcon />
             Mi Perfil
-          </button>
+          </button> */}
           {linkMenuItems.map(({ label, href, icon: Icon }) => (
             <Link
               key={label}
