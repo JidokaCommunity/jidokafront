@@ -1,9 +1,14 @@
 import React from 'react'
 import AvatarMenu from '@/app/components/AvatarMenu'
+import { ProfileModalProvider } from '@/app/context/ProfileModalContext'
 
 describe('<AvatarMenu />', () => {
   beforeEach(() => {
-    cy.mount(<AvatarMenu />)
+    cy.mount(
+      <ProfileModalProvider>
+        <AvatarMenu />
+      </ProfileModalProvider>
+    )
   })
 
   it('should render the avatar button and keep the menu closed by default', () => {

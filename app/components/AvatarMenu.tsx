@@ -2,6 +2,7 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useProfileModal } from "../context/ProfileModalContext";
 
 const UserIcon: FC = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -37,8 +38,7 @@ interface MenuLinkItem {
   icon: FC;
 }
 
-const menuItems: MenuLinkItem[] = [
-  { label: "Mi Perfil", href: "/profile", icon: UserIcon },
+const linkMenuItems: MenuLinkItem[] = [
   { label: "Configuración", href: "/settings", icon: SettingsIcon },
   { label: "Proyectos", href: "/projects", icon: FolderIcon },
 ];
@@ -46,6 +46,7 @@ const menuItems: MenuLinkItem[] = [
 const AvatarMenu: FC = () => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { openProfileModal } = useProfileModal();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -83,7 +84,20 @@ const AvatarMenu: FC = () => {
           data-testid="avatar-menu"
           className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg py-1 z-50"
         >
-          {menuItems.map(({ label, href, icon: Icon }) => (
+          <button
+            type="button"
+            role="menuitem"
+            data-testid="avatar-menu-my-profile"
+            className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            onClick={() => {
+              setOpen(false);
+              openProfileModal();
+            }}
+          >
+            <UserIcon />
+            Mi Perfil
+          </button>
+          {linkMenuItems.map(({ label, href, icon: Icon }) => (
             <Link
               key={label}
               href={href}
