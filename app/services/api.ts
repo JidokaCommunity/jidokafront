@@ -5,7 +5,6 @@ export interface Member {
     linkedinURL: string;
     avatar: string;
     specialty?: string;
-    bio?: string;
     githubUrl?: string;
 }
 

@@ -39,10 +39,6 @@ const MemberProfileCard: FC<MemberProfileCardProps> = ({ member }) => {
       <h1 className="mt-4 text-xl font-bold text-gray-900">{member.name}</h1>
       {member.specialty && <p className="text-sm text-gray-600">{member.specialty}</p>}
 
-      <p className="mt-4 text-center text-sm leading-relaxed text-gray-700">
-        {member.bio || "Este miembro aún no ha añadido una biografía."}
-      </p>
-
       <div className="flex flex-wrap justify-center gap-2 mt-6">
         {member.githubUrl && (
           <a

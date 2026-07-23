@@ -7,6 +7,5 @@ export const currentUserMock: Member = {
   linkedinURL: "https://www.linkedin.com/in/daniel-cardenas-88545a181/?locale=es",
   avatar: "https://ui-avatars.com/api/?name=Daniel+Cardenas+Parra&background=random",
   specialty: "Senior Software Engineer · Especialista en Backend",
-  bio: "Apasionado por construir sistemas escalables y mentorear nuevos desarrolladores dentro de la comunidad Jidoka.",
   githubUrl: "https://github.com/borosdemir",
 };
