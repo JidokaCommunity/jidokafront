@@ -2,7 +2,7 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-// import { useProfileModal } from "../context/ProfileModalContext"; // reactivar cuando exista auth real
+// import { useProfileModal } from "../context/ProfileModalContext"; // re-enable once real auth exists
 
 const UserIcon: FC = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -39,14 +39,14 @@ interface MenuLinkItem {
 }
 
 const linkMenuItems: MenuLinkItem[] = [
-  { label: "Configuración", href: "/settings", icon: SettingsIcon },
-  { label: "Proyectos", href: "/projects", icon: FolderIcon },
+  { label: "Settings", href: "/settings", icon: SettingsIcon },
+  { label: "Projects", href: "/projects", icon: FolderIcon },
 ];
 
 const AvatarMenu: FC = () => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  // const { openProfileModal } = useProfileModal(); // reactivar cuando exista auth real
+  // const { openProfileModal } = useProfileModal(); // re-enable once real auth exists
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -65,7 +65,7 @@ const AvatarMenu: FC = () => {
         onClick={() => setOpen((prev) => !prev)}
         aria-haspopup="true"
         aria-expanded={open}
-        aria-label="Menú de usuario"
+        aria-label="User menu"
         data-testid="avatar-button"
         className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#1F5D6B] focus:outline-none"
       >
@@ -84,7 +84,7 @@ const AvatarMenu: FC = () => {
           data-testid="avatar-menu"
           className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg py-1 z-50"
         >
-          {/* "Mi Perfil" comentado hasta que exista autenticación real (no hay usuario logueado todavía) */}
+          {/* "My Profile" hidden until real authentication exists */}
           {/* <button
             type="button"
             role="menuitem"
@@ -96,7 +96,7 @@ const AvatarMenu: FC = () => {
             }}
           >
             <UserIcon />
-            Mi Perfil
+            My Profile
           </button> */}
           {linkMenuItems.map(({ label, href, icon: Icon }) => (
             <Link
@@ -117,7 +117,7 @@ const AvatarMenu: FC = () => {
             onClick={() => setOpen(false)}
           >
             <LogoutIcon />
-            Cerrar Sesión
+            Log Out
           </button>
         </div>
       )}

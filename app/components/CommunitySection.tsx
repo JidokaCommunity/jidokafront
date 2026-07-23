@@ -19,8 +19,8 @@ const CommunitySection: FC = () => {
   return (
     <section className="w-full overflow-hidden bg-gray-50 py-16 md:py-24">
       <div className="mx-auto max-w-3xl px-4 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Conoce a nuestra comunidad</h2>
-        <p className="mt-3 text-lg text-gray-600">Personas reales, construyendo, aprendiendo y creciendo juntos en Jidoka.</p>
+        <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Meet our community</h2>
+        <p className="mt-3 text-lg text-gray-600">Real people, building, learning, and growing together at Jidoka.</p>
       </div>
 
       <Swiper
@@ -60,7 +60,7 @@ const CommunitySection: FC = () => {
           href="/members"
           className="bg-[#1F5D6B] hover:bg-[#164752] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
         >
-          Ver todos los miembros
+          View all members
         </Link>
       </div>
     </section>

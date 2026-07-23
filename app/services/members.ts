@@ -39,10 +39,10 @@ export const mockMembers: Member[] = [
   },
   {
     id: "6",
-    name: "Clari Suarez",
+    name: "Claribel Suarez Muñoz",
     role: "Trainee",
-    linkedinURL: "mailto:Clarisuarez@yahoo.com",
-    avatar: "https://ui-avatars.com/api/?name=Clari+Suarez&background=random",
+    linkedinURL: "https://www.linkedin.com/in/claribel-su%C3%A1rez-mu%C3%B1oz-15773169/",
+    avatar: "https://ui-avatars.com/api/?name=Claribel+Suarez+Mu%C3%B1oz&background=random",
   },
   {
     id: "7",

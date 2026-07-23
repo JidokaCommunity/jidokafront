@@ -36,7 +36,7 @@ const MemberProfileCard: FC<MemberProfileCardProps> = ({ member }) => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(event) => event.stopPropagation()}
-            aria-label={`Ver perfil de GitHub de ${member.name}`}
+            aria-label={`View ${member.name}'s GitHub profile`}
             className="flex items-center gap-1.5 border border-gray-800 text-gray-800 rounded-full px-4 py-2 text-sm font-medium hover:bg-gray-800 hover:text-white transition-colors"
           >
             <FaGithub size={16} />
@@ -49,7 +49,7 @@ const MemberProfileCard: FC<MemberProfileCardProps> = ({ member }) => {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(event) => event.stopPropagation()}
-          aria-label={`Ver perfil de LinkedIn de ${member.name}`}
+          aria-label={`View ${member.name}'s LinkedIn profile`}
           className="flex items-center gap-1.5 bg-blue-600 text-white rounded-full px-4 py-2 text-sm font-medium hover:bg-blue-700 transition-colors"
         >
           <FaLinkedin size={16} />

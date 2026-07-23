@@ -41,11 +41,11 @@ const Members: FC = () => {
   return (
     <main className="mx-auto max-w-5xl p-8">
       <Link href="/" className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700">
-        ← Volver al inicio
+        ← Back to home
       </Link>
 
       <h1 className="mt-3 text-4xl font-jidoka-newsreader font-bold text-gray-900">Members</h1>
-      <p className="mt-1 text-gray-500">Miembros construyendo, aprendiendo y creciendo juntos en Jidoka.</p>
+      <p className="mt-1 text-gray-500">Members building, learning, and growing together at Jidoka.</p>
 
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {members.map((member) => {
@@ -82,7 +82,7 @@ const Members: FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(event) => event.stopPropagation()}
-                    aria-label={`Ver perfil de GitHub de ${member.name}`}
+                    aria-label={`View ${member.name}'s GitHub profile`}
                     className="flex items-center gap-1.5 rounded-full border border-gray-800 px-3 py-1.5 text-xs font-medium text-gray-800 transition-colors hover:bg-gray-800 hover:text-white"
                   >
                     <FaGithub size={14} />
@@ -94,7 +94,7 @@ const Members: FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(event) => event.stopPropagation()}
-                  aria-label={`Ver perfil de LinkedIn de ${member.name}`}
+                  aria-label={`View ${member.name}'s LinkedIn profile`}
                   className="flex items-center gap-1.5 rounded-full bg-blue-600 px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-blue-700"
                 >
                   <FaLinkedin size={14} />

@@ -19,16 +19,16 @@ describe('<AvatarMenu />', () => {
   it('should open the menu with all options when the avatar is clicked', () => {
     cy.get('[data-testid="avatar-button"]').click()
     cy.get('[data-testid="avatar-menu"]').should('be.visible')
-    // "Mi Perfil" comentado hasta que exista autenticación real
-    // cy.get('[data-testid="avatar-menu"]').contains('Mi Perfil')
-    cy.get('[data-testid="avatar-menu"]').contains('Configuración')
-    cy.get('[data-testid="avatar-menu"]').contains('Proyectos')
-    cy.get('[data-testid="avatar-menu"]').contains('Cerrar Sesión')
+    // "My Profile" hidden until real authentication exists
+    // cy.get('[data-testid="avatar-menu"]').contains('My Profile')
+    cy.get('[data-testid="avatar-menu"]').contains('Settings')
+    cy.get('[data-testid="avatar-menu"]').contains('Projects')
+    cy.get('[data-testid="avatar-menu"]').contains('Log Out')
   })
 
   it('should style the logout option in red', () => {
     cy.get('[data-testid="avatar-button"]').click()
-    cy.contains('[role="menuitem"]', 'Cerrar Sesión').should('have.class', 'text-red-600')
+    cy.contains('[role="menuitem"]', 'Log Out').should('have.class', 'text-red-600')
   })
 
   it('should close the menu when clicking outside', () => {

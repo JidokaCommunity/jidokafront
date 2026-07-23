@@ -36,7 +36,7 @@ const ModalShell: FC<ModalShellProps> = ({ onClose, children }) => {
         <button
           type="button"
           onClick={onClose}
-          aria-label="Cerrar"
+          aria-label="Close"
           data-testid="profile-modal-close"
           className="absolute -top-3 -right-3 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-md text-gray-700 hover:bg-gray-100"
         >
