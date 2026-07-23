@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import Image from "next/image";
+import { Member } from "../services/api";
 
 const GithubIcon: FC = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -13,37 +14,11 @@ const LinkedinIcon: FC = () => (
   </svg>
 );
 
-const PortfolioIcon: FC = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10" />
-    <path d="M2 12h20" />
-    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-  </svg>
-);
-
-interface MemberProfileData {
-  name: string;
-  role: string;
-  specialty: string;
-  bio: string;
-  avatar: string;
-  githubUrl: string;
-  linkedinUrl: string;
-  portfolioUrl: string;
+interface MemberProfileCardProps {
+  member: Member;
 }
 
-const member: MemberProfileData = {
-  name: "Alex Mercer",
-  role: "Senpai",
-  specialty: "Senior Software Engineer · Especialista en Backend",
-  bio: "Apasionado por construir sistemas escalables y mentorear nuevos desarrolladores dentro de la comunidad Jidoka.",
-  avatar: "https://ui-avatars.com/api/?name=Alex+Mercer&background=1F5D6B&color=fff&size=200",
-  githubUrl: "https://github.com/alexmercer",
-  linkedinUrl: "https://linkedin.com/in/alexmercer",
-  portfolioUrl: "https://alexmercer.dev",
-};
-
-const MemberProfileCard: FC = () => {
+const MemberProfileCard: FC<MemberProfileCardProps> = ({ member }) => {
   return (
     <div
       data-testid="member-profile-card"
@@ -62,26 +37,28 @@ const MemberProfileCard: FC = () => {
       </span>
 
       <h1 className="mt-4 text-xl font-bold text-gray-900">{member.name}</h1>
-      <p className="text-sm text-gray-600">{member.specialty}</p>
+      {member.specialty && <p className="text-sm text-gray-600">{member.specialty}</p>}
 
       <p className="mt-4 text-center text-sm leading-relaxed text-gray-700">
-        {member.bio}
+        {member.bio || "Este miembro aún no ha añadido una biografía."}
       </p>
 
       <div className="flex flex-wrap justify-center gap-2 mt-6">
-        <a
-          href={member.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Ver perfil de GitHub de ${member.name}`}
-          className="flex items-center gap-2 border border-gray-800 text-gray-800 rounded-full px-4 py-2 text-sm hover:bg-gray-800 hover:text-white transition-colors"
-        >
-          <GithubIcon />
-          GitHub
-        </a>
+        {member.githubUrl && (
+          <a
+            href={member.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Ver perfil de GitHub de ${member.name}`}
+            className="flex items-center gap-2 border border-gray-800 text-gray-800 rounded-full px-4 py-2 text-sm hover:bg-gray-800 hover:text-white transition-colors"
+          >
+            <GithubIcon />
+            GitHub
+          </a>
+        )}
 
         <a
-          href={member.linkedinUrl}
+          href={member.linkedinURL}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Ver perfil de LinkedIn de ${member.name}`}
@@ -89,17 +66,6 @@ const MemberProfileCard: FC = () => {
         >
           <LinkedinIcon />
           LinkedIn
-        </a>
-
-        <a
-          href={member.portfolioUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Ver portfolio de ${member.name}`}
-          className="flex items-center gap-2 text-gray-500 rounded-full px-4 py-2 text-sm hover:bg-gray-100 transition-colors"
-        >
-          <PortfolioIcon />
-          Portfolio
         </a>
       </div>
     </div>

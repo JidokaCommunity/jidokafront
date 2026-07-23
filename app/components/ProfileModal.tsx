@@ -2,6 +2,7 @@
 import React, { FC, useEffect } from "react";
 import MemberProfileCard from "./MemberProfileCard";
 import { useProfileModal } from "../context/ProfileModalContext";
+import { currentUserMock } from "../services/currentUser";
 
 const ProfileModal: FC = () => {
   const { isOpen, closeProfileModal } = useProfileModal();
@@ -46,7 +47,7 @@ const ProfileModal: FC = () => {
         >
           ✕
         </button>
-        <MemberProfileCard />
+        <MemberProfileCard member={currentUserMock} />
       </div>
     </div>
   );
