@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Member } from "../services/api";
-import { mockMembers } from "../services/members";
+import { mockMembers, sortMembers } from "../services/members";
 import { getMemberSlug } from "../services/memberSlug";
 
 const roleOrder: Record<string, number> = {
@@ -13,22 +13,6 @@ const roleOrder: Record<string, number> = {
   SENSEI: 2,
   SENPAI: 3,
   TRAINEE: 4
-};
-
-const sortMembers = (membersList: Member[]) => {
-  return [...membersList].sort((a, b) => {
-    const roleA = a.role.toUpperCase();
-    const roleB = b.role.toUpperCase();
-    
-    const weightA = roleOrder[roleA] || 99;
-    const weightB = roleOrder[roleB] || 99;
-
-    if (weightA !== weightB) {
-      return weightA - weightB;
-    }
-    
-    return a.name.localeCompare(b.name);
-  });
 };
 
 const Members: FC = () => {
