@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Member } from "../services/api";
-import { mockMembers, sortMembers } from "../services/members";
+import { mockMembers } from "../services/members";
 import { getMemberSlug } from "../services/memberSlug";
 
 const roleOrder: Record<string, number> = {
