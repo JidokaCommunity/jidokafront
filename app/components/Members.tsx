@@ -15,22 +15,6 @@ const roleOrder: Record<string, number> = {
   TRAINEE: 4
 };
 
-const sortMembers = (membersList: Member[]) => {
-  return [...membersList].sort((a, b) => {
-    const roleA = a.role.toUpperCase();
-    const roleB = b.role.toUpperCase();
-    
-    const weightA = roleOrder[roleA] || 99;
-    const weightB = roleOrder[roleB] || 99;
-
-    if (weightA !== weightB) {
-      return weightA - weightB;
-    }
-    
-    return a.name.localeCompare(b.name);
-  });
-};
-
 const Members: FC = () => {
   const router = useRouter();
   const [members, setMembers] = useState<Member[]>([]);
