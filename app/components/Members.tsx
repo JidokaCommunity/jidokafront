@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { Member } from "../services/api";
-import { mockMembers, sortMembers } from "../services/members";
+import { Member, getMembers } from "../services/api";
+import { sortMembers } from "../services/members";
 import { getMemberSlug } from "../services/memberSlug";
 
 const roleOrder: Record<string, number> = {
@@ -31,9 +31,8 @@ const Members: FC = () => {
     // Simulating a call to the real Jidoka API
     async function loadMembers() {
       try {
-        // Short timeout to simulate asynchronous network loading
-        await new Promise(resolve => setTimeout(resolve, 500));
-        setMembers(sortMembers(mockMembers));
+        const data = await getMembers();
+        setMembers(sortMembers(data));
       } catch (error) {
         setError("Failed to load members");
       } finally {

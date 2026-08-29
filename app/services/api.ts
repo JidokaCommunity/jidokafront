@@ -21,7 +21,14 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081";
  */
 export async function fetchData<T>(endpoint: string): Promise<T> {
     try {
-        const response = await fetch(endpoint);
+        const apiKey = process.env.NEXT_PUBLIC_API_KEY || '';
+        const response = await fetch(endpoint, {
+            headers: {
+                'x-api-key': apiKey,
+                'Content-Type': 'application/json'
+            },
+            method: 'GET',
+        });
         if (!response.ok) {
             throw new Error(`Failed to fetch ${endpoint}: ${response.status} ${response.statusText}`);
         }
@@ -32,8 +39,11 @@ export async function fetchData<T>(endpoint: string): Promise<T> {
     }
 }
 
-export const getMembers = (): Promise<Member[]> => 
+export const getMembers = (): Promise<Member[]> =>
     fetchData<Member[]>(`${API_BASE_URL}/members`);
 
-export const getData = <T>(url: string): Promise<T> => 
+export const getMemberById = (id: string): Promise<Member> =>
+    fetchData<Member>(`${API_BASE_URL}/members/${id}`);
+
+export const getData = <T>(url: string): Promise<T> =>
     fetchData<T>(url);
