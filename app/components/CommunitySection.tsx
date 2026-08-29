@@ -13,6 +13,12 @@ import { getMemberSlug } from "../services/memberSlug";
 
 const members = sortMembers(mockMembers);
 
+/**
+ * CommunitySection Component
+ * 
+ * Renders a carousel (Swiper) of community members, allowing users to scroll
+ * through and click on members to view their profiles.
+ */
 const CommunitySection: FC = () => {
   const router = useRouter();
 

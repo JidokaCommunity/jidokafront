@@ -1,3 +1,6 @@
+/**
+ * Represents a member of the Jidoka community.
+ */
 export interface Member {
     id: string;
     name: string;
@@ -10,6 +13,12 @@ export interface Member {
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081";
 
+/**
+ * Utility function to fetch data from a given API endpoint.
+ * 
+ * @param endpoint - The URL to fetch data from.
+ * @returns A promise that resolves to the parsed JSON response.
+ */
 export async function fetchData<T>(endpoint: string): Promise<T> {
     try {
         const response = await fetch(endpoint);

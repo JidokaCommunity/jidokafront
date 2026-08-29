@@ -1,5 +1,10 @@
 import React, { FC } from "react";
 
+/**
+ * Goals Component
+ * 
+ * Renders the goals page of the application.
+ */
 const Goals: FC = () => {
     return (
         <main>

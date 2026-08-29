@@ -9,6 +9,10 @@ interface ProfileModalContextValue {
 
 const ProfileModalContext = createContext<ProfileModalContextValue | undefined>(undefined);
 
+/**
+ * Provides the ProfileModal context to its children, managing the modal's
+ * open/closed state.
+ */
 export const ProfileModalProvider: FC<PropsWithChildren> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const openProfileModal = useCallback(() => setIsOpen(true), []);
@@ -21,6 +25,11 @@ export const ProfileModalProvider: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
+/**
+ * Custom hook to consume the ProfileModalContext.
+ * 
+ * @returns The profile modal context value.
+ */
 export function useProfileModal(): ProfileModalContextValue {
   const context = useContext(ProfileModalContext);
   if (!context) {

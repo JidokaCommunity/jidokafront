@@ -1,5 +1,8 @@
 import { Member } from "./api";
 
+/**
+ * Mock data for community members.
+ */
 export const mockMembers: Member[] = [
   {
     id: "1",
@@ -74,6 +77,10 @@ export const mockMembers: Member[] = [
   },
 ];
 
+/**
+ * Order of importance for different member roles.
+ * Used for sorting members.
+ */
 export const roleOrder: Record<string, number> = {
   FOUNDER: 1,
   SENSEI: 2,
@@ -81,6 +88,12 @@ export const roleOrder: Record<string, number> = {
   TRAINEE: 4,
 };
 
+/**
+ * Sorts a list of members by their role weight and then alphabetically by name.
+ * 
+ * @param membersList - The list of members to sort.
+ * @returns A new sorted array of members.
+ */
 export function sortMembers(membersList: Member[]): Member[] {
   return [...membersList].sort((a, b) => {
     const roleA = a.role.toUpperCase();
@@ -97,6 +110,12 @@ export function sortMembers(membersList: Member[]): Member[] {
   });
 }
 
+/**
+ * Finds a member by their unique ID.
+ * 
+ * @param id - The unique identifier of the member.
+ * @returns The member object if found, otherwise undefined.
+ */
 export function findMemberById(id: string): Member | undefined {
   return mockMembers.find((member) => member.id === id);
 }

@@ -5,6 +5,12 @@ import ModalShell from "./ModalShell";
 import { useProfileModal } from "../context/ProfileModalContext";
 import { currentUserMock } from "../services/currentUser";
 
+/**
+ * ProfileModal Component
+ * 
+ * A modal that displays the currently logged-in user's profile card.
+ * Visibility is controlled by the ProfileModalContext.
+ */
 const ProfileModal: FC = () => {
   const { isOpen, closeProfileModal } = useProfileModal();
 

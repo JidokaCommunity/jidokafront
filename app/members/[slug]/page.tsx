@@ -7,6 +7,11 @@ interface MemberPageProps {
   params: Promise<{ slug: string }>;
 }
 
+/**
+ * Member Details Page
+ * 
+ * Renders the profile page for a specific member based on the slug.
+ */
 export default async function MemberPage({ params }: MemberPageProps) {
   const { slug } = await params;
   const member = findMemberById(getMemberIdFromSlug(slug));
