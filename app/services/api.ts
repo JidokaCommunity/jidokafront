@@ -11,7 +11,7 @@ export interface Member {
     githubUrl?: string;
 }
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081";
+const API_BASE_URL = process.env.API_URL || "http://localhost:8081";
 
 /**
  * Utility function to fetch data from a given API endpoint.
@@ -21,7 +21,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081";
  */
 export async function fetchData<T>(endpoint: string): Promise<T> {
     try {
-        const apiKey = process.env.NEXT_PUBLIC_API_KEY || '';
+        const apiKey = process.env.API_KEY || '';
         const response = await fetch(endpoint, {
             headers: {
                 'x-api-key': apiKey,
