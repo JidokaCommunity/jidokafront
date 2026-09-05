@@ -1,3 +1,0 @@
-[build]
-  # Opción recomendada: Excluir específicamente las variables públicas de Next.js
-  SECRETS_SCAN_OMIT_KEYS = "API_KEY,API_URL,REVIEW_ID"
