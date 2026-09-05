@@ -5,6 +5,15 @@ interface ModalShellProps extends PropsWithChildren {
   onClose: () => void;
 }
 
+/**
+ * ModalShell Component
+ * 
+ * A reusable modal wrapper that handles overlay, backdrop blur,
+ * close button, and escape key down events for accessibility.
+ * 
+ * @param onClose - Function to call when the modal should close.
+ * @param children - The content to render inside the modal.
+ */
 const ModalShell: FC<ModalShellProps> = ({ onClose, children }) => {
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {

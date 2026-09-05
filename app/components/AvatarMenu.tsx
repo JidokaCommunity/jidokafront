@@ -43,6 +43,12 @@ const linkMenuItems: MenuLinkItem[] = [
   { label: "Projects", href: "/projects", icon: FolderIcon },
 ];
 
+/**
+ * AvatarMenu Component
+ * 
+ * Renders a dropdown menu for the user avatar, providing access to
+ * profile, settings, projects, and logout functionality.
+ */
 const AvatarMenu: FC = () => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);

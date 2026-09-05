@@ -1,5 +1,5 @@
 "use client";
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,13 +8,36 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import MemberProfileCard from "./MemberProfileCard";
-import { mockMembers, sortMembers } from "../services/members";
+import { sortMembers } from "../services/members";
 import { getMemberSlug } from "../services/memberSlug";
+import { Member, getMembers } from "../services/api";
 
-const members = sortMembers(mockMembers);
-
+/**
+ * CommunitySection Component
+ * 
+ * Renders a carousel (Swiper) of community members, allowing users to scroll
+ * through and click on members to view their profiles.
+ */
 const CommunitySection: FC = () => {
   const router = useRouter();
+  const [members, setMembers] = useState<Member[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    async function loadMembers() {
+      try {
+        const data = await getMembers();
+        setMembers(sortMembers(data));
+      } catch (error) {
+        console.error("Failed to load members", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadMembers();
+  }, []);
+
+  if (loading || members.length === 0) return null;
 
   return (
     <section className="w-full overflow-hidden bg-gray-50 py-16 md:py-24">

@@ -8,6 +8,14 @@ interface MemberProfileCardProps {
   member: Member;
 }
 
+/**
+ * MemberProfileCard Component
+ * 
+ * Displays a summarized card of a member, including their avatar, role, name,
+ * specialty, and social links.
+ * 
+ * @param member - The member data object to display.
+ */
 const MemberProfileCard: FC<MemberProfileCardProps> = ({ member }) => {
   return (
     <div

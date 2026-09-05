@@ -3,6 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import CommunitySection from "./CommunitySection";
 
+/**
+ * Homepage Component
+ * 
+ * Renders the landing page of the application, including the hero section,
+ * mission statement, and community call-to-action sections.
+ */
 const Homepage: FC = () => {
   return (
     <main className="min-h-screen bg-white">

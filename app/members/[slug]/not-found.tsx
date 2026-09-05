@@ -1,5 +1,10 @@
 import Link from "next/link";
 
+/**
+ * Member Not Found Page
+ * 
+ * Renders a 404 page when a requested member is not found.
+ */
 export default function MemberNotFound() {
   return (
     <main className="flex flex-col items-center justify-center gap-4 p-16 text-center">

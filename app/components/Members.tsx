@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { Member } from "../services/api";
-import { mockMembers, sortMembers } from "../services/members";
+import { Member, getMembers } from "../services/api";
+import { sortMembers } from "../services/members";
 import { getMemberSlug } from "../services/memberSlug";
 
 const roleOrder: Record<string, number> = {
@@ -15,6 +15,12 @@ const roleOrder: Record<string, number> = {
   TRAINEE: 4
 };
 
+/**
+ * Members Component
+ * 
+ * Displays a grid of community members, including their roles, specialties,
+ * and social links. It fetches the members data asynchronously.
+ */
 const Members: FC = () => {
   const router = useRouter();
   const [members, setMembers] = useState<Member[]>([]);
@@ -22,12 +28,11 @@ const Members: FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Simulando el llamado a la API real de Jidoka
+    // Simulating a call to the real Jidoka API
     async function loadMembers() {
       try {
-        // Pequeño timeout para simular la carga asincrona de una red
-        await new Promise(resolve => setTimeout(resolve, 500));
-        setMembers(sortMembers(mockMembers));
+        const data = await getMembers();
+        setMembers(sortMembers(data));
       } catch (error) {
         setError("Failed to load members");
       } finally {

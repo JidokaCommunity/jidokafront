@@ -2,6 +2,11 @@ import React, { FC } from "react";
 import Link from "next/link";
 // import AvatarMenu from "./AvatarMenu"; // hidden until real auth exists
 
+/**
+ * Navbar Component
+ * 
+ * Renders the top navigation bar of the application.
+ */
 const Navbar: FC = () => {
   return (
     <header className="flex justify-between items-center p-4 border-b">

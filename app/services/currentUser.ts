@@ -1,5 +1,8 @@
 import { Member } from "./api";
 
+/**
+ * Mock data representing the currently authenticated user.
+ */
 export const currentUserMock: Member = {
   id: "3",
   name: "Daniel Cardenas Parra",

@@ -1,5 +1,10 @@
 import React, { FC } from "react";
 
+/**
+ * Vision Component
+ * 
+ * Renders the vision page of the application.
+ */
 const Vision: FC = () => {
   return (
     <main className="min-h-screen bg-white flex justify-center">
