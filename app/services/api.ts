@@ -11,7 +11,7 @@ export interface Member {
     githubUrl?: string;
 }
 
-const API_BASE_URL = process.env.API_URL || "http://localhost:8081";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081";
 
 /**
  * Utility function to fetch data from a given API endpoint.
