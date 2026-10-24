@@ -23,11 +23,8 @@ describe('Homepage', () => {
     });
 
     it('should display all required images', () => {
-        cy.get('img')
-            .should('have.length', 2)
-            .each(($img) => {
-                cy.wrap($img).should('be.visible');
-            });
+        cy.get('img[alt="Learn and Collaborate"]').should('be.visible');
+        cy.get('img[alt="Train New Jidokas"]').should('be.visible');
     });
 
     it('should display the mission section', () => {

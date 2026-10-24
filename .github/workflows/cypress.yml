@@ -1,0 +1,37 @@
+name: Cypress
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  Cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Verificar que existen specs
+        run: |
+          test -n "$(find cypress/e2e cypress/component -name '*.cy.*' 2>/dev/null)" \
+            || { echo "No se encontraron specs de Cypress"; exit 1; }
+
+      - name: Pruebas de componentes
+        run: npx cypress run --component
+
+      - name: Build y servidor
+        run: |
+          npm run build
+          npm start &
+          npx wait-on http://localhost:3000
+
+      - name: Pruebas e2e
+        run: npx cypress run --e2e
