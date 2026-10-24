@@ -9,14 +9,14 @@ describe('Members Page E2E', () => {
     cy.contains('Loading...').should('not.exist');
 
     // Verify some specific members are rendered on screen
-    cy.contains('Juan Maldonado').should('be.visible');
-    cy.contains('Karine Florez').should('be.visible');
+    cy.contains('Juan Carlos Maldonado Beltran').should('be.visible');
+    cy.contains('Luz Karine Florez daza').should('be.visible');
     cy.contains('Stiven Valencia').should('be.visible');
-    
-    // Verify role display
-    cy.contains('CEO, Senpai').should('be.visible');
 
-    // Verify we have the 10 members rendered (the list items)
-    cy.get('main .space-y-4 > div').should('have.length', 10);
+    // Verify role display
+    cy.contains('FOUNDER').should('be.visible');
+
+    // Verify we have the 10 members rendered (the cards)
+    cy.get('[data-testid="member-profile-card"]').should('have.length', 10);
   });
 });

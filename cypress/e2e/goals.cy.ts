@@ -12,6 +12,8 @@ describe("Goals Page E2E", () => {
     });
 
     it("should have the correct styles", () => {
-      cy.get("h1").should("have.class", "text-6xl");
+      cy.get("h1")
+        .should("have.class", "text-3xl")
+        .and("have.class", "md:text-5xl");
     });
   });

@@ -12,8 +12,8 @@ describe("Goals Component", () => {
 
     it("should have the correct styles", () => {
       cy.get("h1")
-        .should("have.class", "text-6xl")
-        .and("have.class", "text-center")
+        .should("have.class", "text-3xl")
+        .and("have.class", "md:text-5xl")
         .and("have.class", "font-jidoka-newsreader");
     });
   });
