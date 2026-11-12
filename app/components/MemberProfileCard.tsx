@@ -1,8 +1,8 @@
 "use client";
 import React, { FC } from "react";
-import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Member } from "../services/api";
+import MemberAvatar from "./MemberAvatar";
 
 interface MemberProfileCardProps {
   member: Member;
@@ -22,9 +22,9 @@ const MemberProfileCard: FC<MemberProfileCardProps> = ({ member }) => {
       data-testid="member-profile-card"
       className="flex flex-col items-center w-full max-w-sm bg-white border rounded-2xl shadow-sm p-8"
     >
-      <Image
+      <MemberAvatar
         src={member.avatar}
-        alt={member.name}
+        name={member.name}
         width={96}
         height={96}
         className="w-24 h-24 rounded-full object-cover border-2 border-slate-200 shadow-sm"

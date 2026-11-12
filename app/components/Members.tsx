@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Member } from "../services/api";
 import { getMemberSlug } from "../services/memberSlug";
+import MemberAvatar from "./MemberAvatar";
 
 interface MembersProps {
   members?: Member[];
@@ -50,9 +51,9 @@ const Members: FC<MembersProps> = ({ members = [], error = null }) => {
               }}
               className="flex min-h-[220px] cursor-pointer flex-col items-center rounded-2xl border bg-white p-6 text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              <img
+              <MemberAvatar
                 src={member.avatar}
-                alt={member.name}
+                name={member.name}
                 className="h-16 w-16 rounded-full border-2 border-slate-200 object-cover shadow-sm"
               />
 

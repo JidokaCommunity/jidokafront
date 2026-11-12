@@ -32,3 +32,14 @@ export function sortMembers(membersList: Member[]): Member[] {
     return a.name.localeCompare(b.name);
   });
 }
+
+/**
+ * Generates the fallback avatar URL with the member's initials using ui-avatars.
+ *
+ * @param name - The member's full name.
+ * @returns The fallback avatar URL.
+ */
+export function getFallbackAvatarUrl(name: string): string {
+  return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=random`;
+}
+
