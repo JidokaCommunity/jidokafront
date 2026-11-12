@@ -1,49 +1,25 @@
 "use client";
 import React, { FC } from "react";
-import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { Member, getMembers } from "../services/api";
-import { sortMembers } from "../services/members";
+import { Member } from "../services/api";
 import { getMemberSlug } from "../services/memberSlug";
 
-const roleOrder: Record<string, number> = {
-  FOUNDER: 1,
-  SENSEI: 2,
-  SENPAI: 3,
-  TRAINEE: 4
-};
+interface MembersProps {
+  members?: Member[];
+  error?: string | null;
+}
 
 /**
  * Members Component
  * 
  * Displays a grid of community members, including their roles, specialties,
- * and social links. It fetches the members data asynchronously.
+ * and social links.
  */
-const Members: FC = () => {
+const Members: FC<MembersProps> = ({ members = [], error = null }) => {
   const router = useRouter();
-  const [members, setMembers] = useState<Member[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    // Simulating a call to the real Jidoka API
-    async function loadMembers() {
-      try {
-        const data = await getMembers();
-        setMembers(sortMembers(data));
-      } catch (error) {
-        setError("Failed to load members");
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadMembers();
-  }, [])
-
-
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   if (!Array.isArray(members)) {

@@ -28,6 +28,7 @@ export async function fetchData<T>(endpoint: string): Promise<T> {
                 'Content-Type': 'application/json'
             },
             method: 'GET',
+            cache: 'no-store',
         });
         if (!response.ok) {
             throw new Error(`Failed to fetch ${endpoint}: ${response.status} ${response.statusText}`);
