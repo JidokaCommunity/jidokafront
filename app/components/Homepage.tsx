@@ -2,8 +2,19 @@ import React, { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CommunitySection from "./CommunitySection";
+import { Member } from "../services/api";
 
-const Homepage: FC = () => {
+interface HomepageProps {
+  members?: Member[];
+}
+
+/**
+ * Homepage Component
+ * 
+ * Renders the landing page of the application, including the hero section,
+ * mission statement, and community call-to-action sections.
+ */
+const Homepage: FC<HomepageProps> = ({ members = [] }) => {
   return (
     <main className="min-h-screen bg-white">
       {/* Navbar (Assuming it's a separate component, not included here) */}
@@ -80,7 +91,7 @@ const Homepage: FC = () => {
         </p>
       </section>
 
-      <CommunitySection />
+      <CommunitySection members={members} />
 
       {/* "OUR MISSION" Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">

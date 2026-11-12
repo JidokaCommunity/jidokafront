@@ -2,6 +2,12 @@
 import { useRouter } from "next/navigation";
 import ModalShell from "../../../components/ModalShell";
 
+/**
+ * Intercepted Member Not Found Modal
+ * 
+ * Renders a 404 state within a modal if the intercepted member
+ * route fails to find the requested member.
+ */
 export default function InterceptedMemberNotFound() {
   const router = useRouter();
 

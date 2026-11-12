@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+ * WhoWeAre Component
+ * 
+ * Renders a descriptive section about the community's purpose and mission.
+ */
 const WhoWeAre = () => {
   return <main className="p-8">
     <div className="mb-4">

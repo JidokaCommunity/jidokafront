@@ -1,15 +1,25 @@
 import { notFound } from "next/navigation";
 import MemberProfileCard from "../../components/MemberProfileCard";
-import { findMemberById } from "../../services/members";
+import { getMemberById } from "../../services/api";
 import { getMemberIdFromSlug } from "../../services/memberSlug";
 
 interface MemberPageProps {
   params: Promise<{ slug: string }>;
 }
 
+/**
+ * Member Details Page
+ * 
+ * Renders the profile page for a specific member based on the slug.
+ */
 export default async function MemberPage({ params }: MemberPageProps) {
   const { slug } = await params;
-  const member = findMemberById(getMemberIdFromSlug(slug));
+  let member;
+  try {
+    member = await getMemberById(getMemberIdFromSlug(slug));
+  } catch (error) {
+    // If the API call fails (e.g., 404), member remains undefined
+  }
 
   if (!member) {
     notFound();

@@ -8,13 +8,23 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import MemberProfileCard from "./MemberProfileCard";
-import { mockMembers, sortMembers } from "../services/members";
 import { getMemberSlug } from "../services/memberSlug";
+import { Member } from "../services/api";
 
-const members = sortMembers(mockMembers);
+interface CommunitySectionProps {
+  members?: Member[];
+}
 
-const CommunitySection: FC = () => {
+/**
+ * CommunitySection Component
+ * 
+ * Renders a carousel (Swiper) of community members, allowing users to scroll
+ * through and click on members to view their profiles.
+ */
+const CommunitySection: FC<CommunitySectionProps> = ({ members = [] }) => {
   const router = useRouter();
+
+  if (members.length === 0) return null;
 
   return (
     <section className="w-full overflow-hidden bg-gray-50 py-16 md:py-24">

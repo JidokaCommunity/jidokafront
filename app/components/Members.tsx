@@ -1,44 +1,26 @@
 "use client";
 import React, { FC } from "react";
-import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Member } from "../services/api";
-import { mockMembers, sortMembers } from "../services/members";
 import { getMemberSlug } from "../services/memberSlug";
+import MemberAvatar from "./MemberAvatar";
 
-const roleOrder: Record<string, number> = {
-  FOUNDER: 1,
-  SENSEI: 2,
-  SENPAI: 3,
-  TRAINEE: 4
-};
+interface MembersProps {
+  members?: Member[];
+  error?: string | null;
+}
 
-const Members: FC = () => {
+/**
+ * Members Component
+ * 
+ * Displays a grid of community members, including their roles, specialties,
+ * and social links.
+ */
+const Members: FC<MembersProps> = ({ members = [], error = null }) => {
   const router = useRouter();
-  const [members, setMembers] = useState<Member[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    // Simulando el llamado a la API real de Jidoka
-    async function loadMembers() {
-      try {
-        // Pequeño timeout para simular la carga asincrona de una red
-        await new Promise(resolve => setTimeout(resolve, 500));
-        setMembers(sortMembers(mockMembers));
-      } catch (error) {
-        setError("Failed to load members");
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadMembers();
-  }, [])
-
-
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   if (!Array.isArray(members)) {
@@ -69,9 +51,9 @@ const Members: FC = () => {
               }}
               className="flex min-h-[220px] cursor-pointer flex-col items-center rounded-2xl border bg-white p-6 text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              <img
+              <MemberAvatar
                 src={member.avatar}
-                alt={member.name}
+                name={member.name}
                 className="h-16 w-16 rounded-full border-2 border-slate-200 object-cover shadow-sm"
               />
 
